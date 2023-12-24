@@ -5,7 +5,9 @@ using UnityEngine;
 public class AnimationTrig : MonoBehaviour
 {
     Animator animator;
-    [SerializeField] float targetDistance, givenDistance = 30f;
+    [SerializeField] float targetDistance, givenDistance = 50f;
+    [SerializeField] GameObject outPoint;
+
     private void Start()
     {
         animator = GetComponent<Animator>();
@@ -16,9 +18,10 @@ public class AnimationTrig : MonoBehaviour
         {
 
             RaycastHit hit;
-            if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.left), out hit, givenDistance))
+            if (Physics.Raycast(outPoint.transform.position, outPoint.transform.TransformDirection(Vector3.back), out hit, givenDistance))
             {
-                Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.left) * givenDistance, Color.red);
+                Debug.DrawRay(outPoint.transform.position, outPoint.transform.TransformDirection(Vector3.back) * givenDistance, Color.red);
+                print(hit.collider.gameObject.name);
                 targetDistance = hit.distance;
 
                 if (targetDistance < givenDistance)
@@ -26,7 +29,7 @@ public class AnimationTrig : MonoBehaviour
                     animator.SetBool("trigger", true);
                     FireSpell.Instance.FireBullet(Vector3.back);
 
-
+                    //StartCoroutine(DelayShoot(5));
                     //AudioSource spellSound = GetComponent<AudioSource>();
                     //spellSound.Play();
 
@@ -38,5 +41,11 @@ public class AnimationTrig : MonoBehaviour
         {
             animator.SetBool("trigger", false);
         }
+    }
+    IEnumerator DelayShoot(float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
+
+        
     }
 }

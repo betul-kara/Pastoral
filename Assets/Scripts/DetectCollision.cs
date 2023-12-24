@@ -10,7 +10,7 @@ public class DetectCollision : MonoBehaviour
     {
         if (!isEnemy)
         {
-            Destroy(gameObject, 1);
+            Destroy(gameObject, 1f);
         }
     }
     private void OnCollisionEnter(Collision collision)

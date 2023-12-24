@@ -19,6 +19,7 @@ public class Enemy : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("bullet"))
         {
+            print("vuruldu");
             EnemyHealth(damageAmount);
         }
     }
