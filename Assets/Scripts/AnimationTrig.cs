@@ -14,7 +14,7 @@ public class AnimationTrig : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Fire1") && PauseMenu.Instance.isPause == false)
         {
 
             RaycastHit hit;
@@ -46,6 +46,6 @@ public class AnimationTrig : MonoBehaviour
     {
         yield return new WaitForSeconds(waitTime);
 
-        
+
     }
 }
