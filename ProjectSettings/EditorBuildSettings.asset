@@ -9,6 +9,15 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 4d8d5e06afa26124799717e4310493a2
   - enabled: 1
-    path: Assets/Scenes/Pastoral.unity
+    path: Assets/Scenes/Level1Intro.unity
+    guid: 7dd540aa50122b045a448b35b7d63dc2
+  - enabled: 1
+    path: Assets/Scenes/Level1.unity
     guid: 47cb3adff207dbf4fbee311a2aa8daf7
+  - enabled: 1
+    path: Assets/Scenes/Level2Intro.unity
+    guid: 629c36c2da1b86c4a8fbc00dc17bbfa3
+  - enabled: 1
+    path: Assets/Scenes/Level2.unity
+    guid: 63493ed6cdfbce5419eca907c9646ef0
   m_configObjects: {}

@@ -4,23 +4,15 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    [SerializeField] int enemyHealth = 10;
-    [SerializeField] int damageAmount = 5;
+    public static Enemy Instance;
+    Animator animator;
 
-    public void EnemyHealth(int damageAmount)
+
+    private void Awake()
     {
-        enemyHealth -= damageAmount;
-        if (enemyHealth <= 0)
-        {
-            gameObject.SetActive(false);
-        }
+        Instance = this;
+        animator = GetComponent<Animator>();
     }
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("bullet"))
-        {
-            print("vuruldu");
-            EnemyHealth(damageAmount);
-        }
-    }
+
+
 }

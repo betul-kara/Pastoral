@@ -8,6 +8,7 @@ public class PauseMenu : MonoBehaviour
     public static PauseMenu Instance;
     [SerializeField] GameObject pauseMenu;
     [SerializeField] GameObject optionMenu;
+    [SerializeField] GameObject cursor;
     public bool isPause;
     private void Awake()
     {
@@ -20,12 +21,14 @@ public class PauseMenu : MonoBehaviour
             isPause = true;
             Cursor.lockState = CursorLockMode.None;
             pauseMenu.SetActive(true);
+            cursor.SetActive(false);
             Time.timeScale = 0;
         }
     }
     public void Continue()
     {
         pauseMenu.SetActive(false);
+        cursor.SetActive(true);
         Cursor.lockState = CursorLockMode.Locked;
         Time.timeScale = 1;
         isPause = false;
@@ -33,9 +36,13 @@ public class PauseMenu : MonoBehaviour
     public void Restart()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        Time.timeScale = 1;
+
     }
     public void MainMenu()
     {
         SceneManager.LoadScene(0);
+        Time.timeScale = 1;
+        Cursor.lockState= CursorLockMode.None;
     }
 }

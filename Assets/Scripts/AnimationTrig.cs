@@ -7,6 +7,10 @@ public class AnimationTrig : MonoBehaviour
     Animator animator;
     [SerializeField] float targetDistance, givenDistance = 50f;
     [SerializeField] GameObject outPoint;
+    public bool hasFired = false;
+    float currentCooldown = 0f;
+    float attackCooldown = 5f;
+
 
     private void Start()
     {
@@ -20,8 +24,6 @@ public class AnimationTrig : MonoBehaviour
             RaycastHit hit;
             if (Physics.Raycast(outPoint.transform.position, outPoint.transform.TransformDirection(Vector3.back), out hit, givenDistance))
             {
-                Debug.DrawRay(outPoint.transform.position, outPoint.transform.TransformDirection(Vector3.back) * givenDistance, Color.red);
-                print(hit.collider.gameObject.name);
                 targetDistance = hit.distance;
 
                 if (targetDistance < givenDistance)
@@ -29,7 +31,6 @@ public class AnimationTrig : MonoBehaviour
                     animator.SetBool("trigger", true);
                     FireSpell.Instance.FireBullet(Vector3.back);
 
-                    //StartCoroutine(DelayShoot(5));
                     //AudioSource spellSound = GetComponent<AudioSource>();
                     //spellSound.Play();
 
@@ -42,10 +43,5 @@ public class AnimationTrig : MonoBehaviour
             animator.SetBool("trigger", false);
         }
     }
-    IEnumerator DelayShoot(float waitTime)
-    {
-        yield return new WaitForSeconds(waitTime);
 
-
-    }
 }

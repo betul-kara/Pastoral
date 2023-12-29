@@ -6,6 +6,8 @@ TagManager:
   tags:
   - bullet
   - Enemy
+  - SafeZone
+  - Sheep
   layers:
   - Default
   - TransparentFX

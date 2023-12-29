@@ -38,6 +38,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 1
     m_ConditionEvent: walk
     m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: idle
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -549989857672129011}
   m_Solo: 0
@@ -90,6 +93,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 2
     m_ConditionEvent: walk
     m_EventTreshold: 0
+  - m_ConditionMode: 1
+    m_ConditionEvent: idle
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -8073670207156640024}
   m_Solo: 0
@@ -114,6 +120,12 @@ AnimatorController:
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: walk
+    m_Type: 4
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 0}
+  - m_Name: idle
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
@@ -152,8 +164,8 @@ AnimatorStateMachine:
   m_EntryTransitions: []
   m_StateMachineTransitions: {}
   m_StateMachineBehaviours: []
-  m_AnyStatePosition: {x: -30, y: 20, z: 0}
+  m_AnyStatePosition: {x: -40, y: 40, z: 0}
   m_EntryPosition: {x: -40, y: 80, z: 0}
-  m_ExitPosition: {x: -40, y: 140, z: 0}
+  m_ExitPosition: {x: -40, y: 120, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
   m_DefaultState: {fileID: -8073670207156640024}
