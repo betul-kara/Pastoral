@@ -17,6 +17,7 @@ public class Wolf : MonoBehaviour
     bool isChasing = false;
     float attackCooldown = 1.5f;
     float currentCooldown = 0f;
+    [SerializeField] float playerDamage;
     public bool isDamaged = false;
 
     private void Start()
@@ -39,7 +40,7 @@ public class Wolf : MonoBehaviour
         if (target != null)
         {
             float distanceToTarget = Vector3.Distance(transform.position, target.position);
-            if (distanceToTarget <= attackRange)
+            if (distanceToTarget <= attackRange && !isDamaged)
             {
                 Attack();
             }
@@ -74,7 +75,7 @@ public class Wolf : MonoBehaviour
         if (!isAttacking && Player.Instance.health > 0)
         {
             isAttacking = true;
-            Player.Instance.TakeDamage(5);
+            Player.Instance.TakeDamage(playerDamage);
             currentCooldown = attackCooldown;
 
             if (Player.Instance.health > 0)

@@ -10,11 +10,13 @@ public class AnimationTrig : MonoBehaviour
     public bool hasFired = false;
     float currentCooldown = 0f;
     float attackCooldown = 5f;
+    [SerializeField] AudioSource spellSound;
 
 
     private void Start()
     {
         animator = GetComponent<Animator>();
+        spellSound = GetComponent<AudioSource>();
     }
     private void Update()
     {
@@ -31,9 +33,8 @@ public class AnimationTrig : MonoBehaviour
                     animator.SetBool("trigger", true);
                     FireSpell.Instance.FireBullet(Vector3.back);
 
-                    //AudioSource spellSound = GetComponent<AudioSource>();
-                    //spellSound.Play();
 
+                    spellSound.Play();
                 }
             }
 
